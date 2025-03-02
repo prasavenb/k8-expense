@@ -25,7 +25,7 @@ spec:
       - name: mysql
         image: venkat18b/mysql:v1
 ---
-apiVersion:
+apiVersion: v1
 kind: Service
 metadata:
   name: mysql
