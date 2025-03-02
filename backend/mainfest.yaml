@@ -13,20 +13,20 @@ metadata:
   namespace: expense
   labels:
     app: backend
-    tier: app
+    teir: api
     project: expense
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: backend
-      tier: app
+      teir: api
       project: expense
   template:
     metadata: 
       labels:
         app: backend
-        tier: app
+        teir: api
         project: expense
     spec:
       containers:
