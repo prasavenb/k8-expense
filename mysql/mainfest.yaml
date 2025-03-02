@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: expense
+  labels:
+    app: mysql
+    teir: db
+    project: expense
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  mysql
+      teir: db
+      project: expense
+  template:
+    metadata: 
+      labels:
+        app: mysql
+        teir: db
+        project: expense
+    spec:
+      containers:
+      - name: mysql
+        image: venkat18b/mysql:v1
+---
+apiVersion:
+kind: Service
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    app: mysql
+    teir:  db
+    project: expense
+  ports:
+  - name: mysql
+    protocol: TCP
+    port: 3306
+    targetPort: 3307
