@@ -1,0 +1,53 @@
+apiversion: v1
+kind: ConfigMap
+metadata:
+  name: backend
+  namespace: expense
+data:
+  DB_HOST: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: expense
+  labels:
+    app: backend
+    teir: app
+    project: expense
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  backend
+      teir: app
+      project: expense
+  template:
+    metadata: 
+      labels:
+        app: backend
+        teir: app
+        project: expense
+    spec:
+      containers:
+      - name: backend
+        image: venkat18b/backend:v1
+        envFrom:
+        - configMapRef:
+            name: backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: expense
+spec:
+  selector:
+    app: backend
+    teir:  app
+    project: expense
+  ports:
+  - name: backend
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
