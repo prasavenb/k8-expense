@@ -47,7 +47,7 @@ spec:
     teir:  app
     project: expense
   ports:
-  - name: backend
+  - name: backend-port
     protocol: TCP
     port: 8080
     targetPort: 8080
