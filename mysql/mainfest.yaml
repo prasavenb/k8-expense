@@ -36,7 +36,7 @@ spec:
     teir:  db
     project: expense
   ports:
-  - name: mysql
+  - name: mysql-port
     protocol: TCP
     port: 3306
     targetPort: 3307
