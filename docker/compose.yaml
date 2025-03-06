@@ -5,18 +5,18 @@ volumes:
   mysql:
 services:
   mysql:
-    image: mysql:v1
+    image: venkat18b/mysql:v1
     container_name: mysql
     volumes:
     - mysql:/var/lib/mysql
   backend:
-    image: backend:v1
+    image: venkat18b/backend:v1
     container_name: backend
     command: sh -c "sleep 15 && node /opt/server/index.js"
     depends_on:
       - mysql
   frontend:
-    image: frontend:v1
+    image: venkat18b/frontend:v1
     container_name: frontend
     depends_on:
       - backend
