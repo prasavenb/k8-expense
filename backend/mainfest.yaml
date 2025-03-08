@@ -13,21 +13,21 @@ metadata:
   namespace: expense
   labels:
     app: backend
-    teir: api
+    tier: api
     project: expense
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: backend
-      teir: api
+      tier: api
       project: expense
       
   template:
     metadata: 
       labels:
         app: backend
-        teir: api
+        tier: api
         project: expense
     spec:
       containers:
@@ -45,7 +45,7 @@ metadata:
 spec:
   selector:
     app: backend
-    tier:  app
+    tier:  api
     project: expense
   ports:
   - name: backend-port
